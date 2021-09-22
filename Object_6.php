@@ -1,60 +1,68 @@
 <?php
 class Ant // муравей
 { // атрибуты
-    public $paws;
+    public $OutOfAnthill;
     public $eyes;
     public $memory;
     public $trail;
-    public $anthill;
+    public $back;
+/*
+    public function set_getOutOfAnthill($OutOfAnthill)
+    {
+        //выйти из муравейника
+        $this->OutOfAnthill= $OutOfAnthill;
+    }
+    public function set_goBackToAnthill ($back)
+    {
+        //вернуться в муравейник
+        $this->back = $back; 
+    }
+    public function set_followTrail ($trail)
+    {
+        //идти по тропе
+        $this->trail = $trail;
+    }
+    public function  set_rememberTrailBack($remember)
+    {
+        //вспомнить путь назад
+        $this->memory = $remember;
+    }
+    public function set_seeFood($see)
+    {
+        //увидеть и забрать еду
+        $this->eyes = $see;
+    }
+*/
+    public function get_getOutOfAnthill() { return $this->OutOfAnthill ;}
+    public function get_goBackToAnthill() { return $this-> back;}
+    public function get_followTrail()   { return $this-> trail;}
+    public function get_rememberTrailBack() { return $this->memory ;}
+    public function get_seeFood()       { return $this->eyes;}
+    
+    function __construct($OutOfAnthill = 'выходит из муравейника', $trail = 'следует тропе,',$see = 'не забирает еду,',$remember = 'не вспоминает путь назад',$back = 'не возвращается')
+    {
+        $this->OutOfAnthill= $OutOfAnthill;
+        $this->trail = $trail;
+        $this->eyes = $see;
+        $this->memory = $remember;
+        $this->back = $back;
+    }
+    //function __destruct() {echo 'Object delete!';}
 }
 
 $ant = new Ant();
-
-$ant->paws = 'number'; //количество лап
-$ant->eyes = 'presence';
-$ant->memory = 'use/not use';//? 
-$ant->trail = 'long/short';
-$ant->anthill = 'new/old';
-
-function getOutOfAnthill () 
-{
-    //выйти из муравейника
-}
-function goBackToAnthill ()
-{
-    //вернуться в муравейник
-}
-function followTrail ()
-{
-    //идти по тропе
-}
-function rememberTrailBack ()
-{
-    //вспомнить путь назад
-}
-function seeFood ()
-{
-    //увидеть и забрать еду
-}
-
 /*
-// function _construct($paws,$eyes,$memory,$trail,$anthill)
-{
-    $this->paws = $paws;
-    $this->eyes = $eyes;
-    $this->memory = $memory;
-    $this->trail = $trail;
-    $this->anthill = $anthill;
-}
-
-$ant = new Ant(6,yes,no,long,new);
-
-(:)
-    $ant->getOutOfAnthill ();
-    $ant->followTrail ();
-    $ant->seeFood ();
-    $ant->rememberTrailBack ();
-    $ant->followTrail ();
-    $ant->goBackToAnthill ();
-
+$ant->set_getOutOfAnthill('выходит из муравейника');
+$ant->set_followTrail('следует тропе,');
+$ant->set_seeFood('забирает еду,');
+$ant->set_rememberTrailBack('вспоминает путь назад');
+$ant->set_goBackToAnthill('возвращается');
 */
+echo 'Муравей '.$ant->get_getOutOfAnthill().('<br>');
+echo 'И '.$ant->get_followTrail();
+echo ''.$ant->get_seeFood();
+echo ''.$ant->get_rememberTrailBack().('<br>');
+echo 'И '.$ant->get_goBackToAnthill().(' в муравейник');
+
+
+

@@ -1,31 +1,36 @@
 <?php
 class Battery 
 { // атрибуты
-    public $volume;
+    public $charge;
+
+    public function set_chargeUp ($chUp)
+    { 
+        //аккумулятор заряжается
+        $this->charge = $chUp;
+    }
+    public function set_discharge ($disCh)
+    { 
+        //в процессе работы аккумулятор разряжается
+        $this->charge = $disCh;
+    }
+
+    public function get_chargeUp() { return $this->charge; }
+    public function get_discharge() { return $this->charge; }
+/*
+    function __construct($chUp = 'работает',$disCh = 'заканчивается')
+    {
+        $this->charge = $chUp;
+        $this->charge = $disCh;
+    }
+     //function __destruct() {echo 'Object delete!';}
+ */
 }
+
  
 $battary = new Battery (); // объект - аккумулятор 
 
-$battary->volume = '4200';
+$battary->set_chargeUp('заряжается');
+$battary->set_discharge('разряжается');
 
-function chargeUp ()
-{ 
-    //аккумулятор заряжается
-}
-function discharge ()
-{ 
-    //в процессе работы аккумулятор разряжается
-}
-
-/*
-function _construct($vol)
-{
-    $this->volume = $vol;
-}
-$battary = new Robot (4200);
-
-(Жизненный цикл:)
-    $battary->chargeUp ();
-    $battary->discharge ();
-    $battary->chargeUp ();
-*/ 
+echo 'Если аккумулятор не '.$battary->get_chargeUp().(', значит есть проблемы<br>');
+echo 'Если он быстро '.$battary->get_discharge().(', то тоже грустно');
